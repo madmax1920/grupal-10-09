@@ -3,7 +3,7 @@ function guardar(dato, pass){
     //var admin=document.getElementById('dato').value;
     //var passu=document.getElementById('pass').value;
 
-    if (dato.trim()==="" || pass.trim()===""){ //Chequea que el dato recibido no esté vacío. 
+    if (dato.trim()===""){ //Chequea que el dato recibido no esté vacío. 
     //El método trim elimina los espacios en blanco al inicio y al final del mismo.
         alert("El dato está vacío");
     
@@ -15,8 +15,12 @@ function guardar(dato, pass){
             alert("contrasena incorrecta");
         }
         
+} else if (dato==="guest") {
+    if(pass===""){
+        location.href="next.html";
     }
-    
+}   
+
     else{
     localStorage.setItem("usuario", dato.trim()); //setItem almacena el dato en la posición "usuario"
     localStorage.setItem("password", pass.trim()); // Almaceno la contraseña
