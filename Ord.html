@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var personas=[];
+    function agregar(){
+
+        var nom=document.getElementById('nombre').value;
+        //var edad=document.getElementById('edad').value;
+        personas.push(nom);
+        document.getElementById('nombre').value="";
+        mostrar(personas);
+        
+    }
+
+    function mostrar(personas){
+        
+        var tabla = "<table border =1> <th> Lista </th>";
+        for (i=0; i<personas.length; i++){
+
+            tabla+="<tr><td align='center'>" + personas[i] + "</td></tr>";
+        }
+        tabla+="</table>";
+        document.getElementById('lista').innerHTML=tabla;
+
+    }
+    function ordenar(){
+        personas.sort(); 
+        mostrar(personas);
+    }
+</script>
+
+<body>
+    <br>
+Nombre: <input type="text" id="nombre" placeholder="Tu nombre"><br><br>
+
+
+
+<button id="agregar" onclick="agregar();"> Agregar a la lista</button> <button id="ordenar" onclick="ordenar();">Ascendente</button>
+
+<div id="lista"></div>
+
+
+</body>
+</html>
